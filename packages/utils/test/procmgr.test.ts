@@ -85,8 +85,11 @@ describe("resolveWindowsShell", () => {
 	// resolve before the cmd.exe fallback is reached, so run the fallback
 	// contract only where the empty-env probe actually lands on cmd.exe.
 	const fallbackShell = resolveWindowsShell({});
-	it.skipIf(fallbackShell !== "C:\\Windows\\System32\\cmd.exe")("falls back to cmd.exe instead of failing when no bash exists", () => {
-		expect(resolveWindowsShell({})).toBe("C:\\Windows\\System32\\cmd.exe");
-		expect(resolveWindowsShell({ ComSpec: "D:\\win\\cmd.exe" })).toBe("D:\\win\\cmd.exe");
-	});
+	it.skipIf(fallbackShell !== "C:\\Windows\\System32\\cmd.exe")(
+		"falls back to cmd.exe instead of failing when no bash exists",
+		() => {
+			expect(resolveWindowsShell({})).toBe("C:\\Windows\\System32\\cmd.exe");
+			expect(resolveWindowsShell({ ComSpec: "D:\\win\\cmd.exe" })).toBe("D:\\win\\cmd.exe");
+		},
+	);
 });
