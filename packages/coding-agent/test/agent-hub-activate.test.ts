@@ -510,7 +510,7 @@ describe("Agent hub double-← gating", () => {
 		AgentRegistry.resetGlobalForTests();
 	});
 
-	function setup(agents: AgentRegistry, sessionFile: string | null = null) {
+	function setup(_agents: AgentRegistry, sessionFile: string | null = null) {
 		let shown: AgentHubOverlayComponent | undefined;
 		let overlayOptions: Record<string, unknown> | undefined;
 		const shownReady = Promise.withResolvers<AgentHubOverlayComponent>();
