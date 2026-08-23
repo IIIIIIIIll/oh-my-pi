@@ -103,8 +103,7 @@ const fastWorkspacePackages = [
 const nativeAndIntegrationPackages = [
 	"packages/natives",
 	"packages/tui",
-	"packages/collab-web",
-	"packages/typescript-edit-benchmark",
+		"packages/typescript-edit-benchmark",
 ];
 
 // Packages the CI buckets deliberately skip but a local full run should still
@@ -136,7 +135,7 @@ const codingAgentUiPathPatterns = [
 const codingAgentRuntimePathPatterns = [
 	/^test\/agent-session[^/]*\.test\.ts$/,
 	/^test\/(acp|mcp|rpc|sdk)[^/]*\.test\.ts$/,
-	/^test\/(session|session-manager|task|collab|internal-urls)\//,
+	/^test\/(session|session-manager|task|internal-urls)\//,
 	/^test\/session[^/]*\.test\.ts$/,
 	/^test\/session-manager[^/]*\.test\.ts$/,
 	/^test\/(extensions?|plugin|autolearn|skills|marketplace|oauth)[^/]*\.test\.ts$/,

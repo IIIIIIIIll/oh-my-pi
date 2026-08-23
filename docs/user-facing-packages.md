@@ -80,17 +80,15 @@ Sources: [`packages/browser-relay/README.md`](../packages/browser-relay/README.m
 - Security/limits: it binds loopback; use `--token` when local processes are untrusted. Chrome
   internal pages, DevTools, Web Store, extension pages, and tabs with DevTools open cannot attach.
 
-### `packages/collab-web` — browser client for collaborative sessions
+### `packages/collab-web` — shared React tool renderers
 
-Sources: [`packages/collab-web/README.md`](../packages/collab-web/README.md), [`packages/collab-web/package.json`](../packages/collab-web/package.json), [`docs/collab.md`](./collab.md).
+Sources: [`packages/collab-web/README.md`](../packages/collab-web/README.md), [`packages/collab-web/package.json`](../packages/collab-web/package.json).
 
-- Package: private `@oh-my-pi/collab-web`; production client: <https://my.omp.sh/>.
-- Feature: browser guest UI for `/collab` sessions, including streaming transcript, tool cards,
-  subagent views, prompts, and host interruption.
-- Local paths: `bun run dev` serves the UI on port 3000; `bun run mock-host` runs an offline relay
-  and scripted host; `bun run build` emits a static SPA under `dist/`.
-- Constraints: non-local deployments require HTTPS and a reachable secure WebSocket relay. The room
-  key stays in the URL fragment and is not sent to the relay.
+- Package: private `@oh-my-pi/collab-web`; build-only package with no runtime entrypoint.
+- Feature: hosts the shared React per-tool renderers (`src/tool-render/**`) bundled into
+  coding-agent's self-contained HTML session exports as the `<omp-tool-view>` web component.
+- Regeneration: `bun run gen:tool-views` from the repository root bundles the renderers into
+  `packages/coding-agent/src/export/html/tool-views.generated.js`.
 
 ### `packages/snapcompact` — bitmap context-compression API
 
